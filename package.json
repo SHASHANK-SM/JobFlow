@@ -1,0 +1,9 @@
+{
+    "name": "jobflow-root",
+    "private": true,
+    "version": "1.0.0",
+    "description": "JobFlow app for Vercel deployment",
+    "dependencies": {
+        "mongodb": "^6.9.0"
+    }
+}

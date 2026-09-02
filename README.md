@@ -252,4 +252,9 @@ This project is for educational and personal project use.
 
 ## Author
 
-JobFlow Dashboard
+Shashank SM JobFlow Dashboard
+
+##Deployed Dashboard explore
+```text
+https://job-flow-7qmr.vercel.app/
+```

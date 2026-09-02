@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JobFlow Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <div class="brand-wrap">
+                <div class="brand-mark">J</div>
+                <div>
+                    <p class="brand-name">JobFlow</p>
+                    <span class="brand-subtitle">Career tracker</span>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <button class="header-btn ghost-btn" type="button" id="exportBtn">Export</button>
+                <button class="header-btn ghost-btn" type="button" id="themeToggle">Theme</button>
+                <button class="header-btn ghost-btn" type="button" id="logoutBtn">Logout</button>
+                <button class="header-btn primary-btn" type="button" id="focusAddJob">+ Add job</button>
+            </div>
+        </header>
+
+        <main class="dashboard">
+            <section class="welcome-strip panel">
+                <div>
+                    <p class="eyebrow">Welcome back</p>
+                    <h2 id="welcomeName">Your dashboard</h2>
+                </div>
+                <div class="user-pill" id="userBadge">Not signed in</div>
+            </section>
+
+            <section class="stats-grid">
+                <article class="stat-card accent-purple">
+                    <div class="stat-topline">
+                        <span>Total applications</span>
+                        <i>▣</i>
+                    </div>
+                    <h3 id="totalApplications">0</h3>
+                    <p id="totalTrend">+0 this month</p>
+                </article>
+
+                <article class="stat-card accent-blue">
+                    <div class="stat-topline">
+                        <span>Interviewing</span>
+                        <i>◔</i>
+                    </div>
+                    <h3 id="interviewingCount">0</h3>
+                    <p>Active conversations</p>
+                </article>
+
+                <article class="stat-card accent-green">
+                    <div class="stat-topline">
+                        <span>Offers</span>
+                        <i>✓</i>
+                    </div>
+                    <h3 id="offerCount">0</h3>
+                    <p>Positive outcomes</p>
+                </article>
+
+                <article class="stat-card accent-red">
+                    <div class="stat-topline">
+                        <span>Rejected</span>
+                        <i>×</i>
+                    </div>
+                    <h3 id="rejectedCount">0</h3>
+                    <p>Needs review</p>
+                </article>
+            </section>
+
+            <section class="utility-grid">
+                <article class="panel mini-panel">
+                    <div class="panel-heading compact-heading">
+                        <div>
+                            <p class="eyebrow">Recent</p>
+                            <h2>Recent applications</h2>
+                        </div>
+                    </div>
+                    <ul id="recentApplicationsList" class="list-stack"></ul>
+                </article>
+
+                <article class="panel mini-panel">
+                    <div class="panel-heading compact-heading">
+                        <div>
+                            <p class="eyebrow">Schedule</p>
+                            <h2>Upcoming interviews &amp; follow-ups</h2>
+                        </div>
+                    </div>
+                    <ul id="upcomingList" class="list-stack"></ul>
+                </article>
+
+                <article class="panel mini-panel">
+                    <div class="panel-heading compact-heading">
+                        <div>
+                            <p class="eyebrow">Docs</p>
+                            <h2>Resume used</h2>
+                        </div>
+                    </div>
+                    <ul id="resumeList" class="list-stack"></ul>
+                </article>
+            </section>
+
+            <section class="insights-grid">
+                <article class="panel mini-panel wide-panel">
+                    <div class="panel-heading compact-heading">
+                        <div>
+                            <p class="eyebrow">Calendar</p>
+                            <h2>Interview dates &amp; deadlines</h2>
+                        </div>
+                    </div>
+                    <div id="calendarList" class="timeline-list"></div>
+                </article>
+
+                <article class="panel mini-panel analytics-panel">
+                    <div class="panel-heading compact-heading">
+                        <div>
+                            <p class="eyebrow">Reports</p>
+                            <h2>Analytics</h2>
+                        </div>
+                    </div>
+                    <div id="analyticsList" class="analytics-list"></div>
+                </article>
+            </section>
+
+            <section class="content-grid">
+                <aside class="panel form-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="eyebrow">Quick capture</p>
+                            <h2>Add a role</h2>
+                        </div>
+                    </div>
+
+                    <form id="jobForm">
+                        <div class="field-grid two-up">
+                            <label>
+                                <span>Company</span>
+                                <input type="text" name="company" placeholder="e.g. Figma" required />
+                            </label>
+                            <label>
+                                <span>Role</span>
+                                <input type="text" name="role" placeholder="e.g. Product Designer" required />
+                            </label>
+                        </div>
+
+                        <div class="field-grid two-up">
+                            <label>
+                                <span>Status</span>
+                                <select name="status">
+                                    <option value="Applied">Applied</option>
+                                    <option value="Interviewing">Interviewing</option>
+                                    <option value="Offer">Offer</option>
+                                    <option value="Rejected">Rejected</option>
+                                </select>
+                            </label>
+                            <label>
+                                <span>Priority</span>
+                                <select name="priority">
+                                    <option value="High">High</option>
+                                    <option value="Medium" selected>Medium</option>
+                                    <option value="Low">Low</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="field-grid two-up">
+                            <label>
+                                <span>Location</span>
+                                <input type="text" name="location" placeholder="Remote / NYC" />
+                            </label>
+                            <label>
+                                <span>Salary</span>
+                                <input type="text" name="salary" placeholder="$120k - $150k" />
+                            </label>
+                        </div>
+
+                        <div class="field-grid two-up">
+                            <label>
+                                <span>Source</span>
+                                <input type="text" name="source" placeholder="LinkedIn / referral" />
+                            </label>
+                            <label>
+                                <span>Applied date</span>
+                                <input type="date" name="appliedDate" />
+                            </label>
+                        </div>
+
+                        <label>
+                            <span>Notes</span>
+                            <textarea name="notes" rows="4"
+                                placeholder="Add follow-up reminders, recruiter contact, or interview prep notes..."></textarea>
+                        </label>
+
+                        <div class="upload-box">
+                            <label class="upload-label" for="resumeUpload">
+                                <span>Resume</span>
+                                <span class="upload-btn">Upload PDF</span>
+                            </label>
+                            <input id="resumeUpload" type="file" name="resumeFile" accept="application/pdf,.pdf" />
+                            <small class="upload-hint">PDF only</small>
+                        </div>
+
+                        <button class="submit-btn" type="submit">Save application</button>
+                    </form>
+                </aside>
+
+                <section class="panel board-panel">
+                    <div class="panel-heading board-header">
+                        <div>
+                            <p class="eyebrow">Pipeline</p>
+                            <h2>Application board</h2>
+                        </div>
+
+                        <div class="toolbar">
+                            <input id="searchInput" type="search" placeholder="Search company or role" />
+                            <select id="statusFilter">
+                                <option value="all">All statuses</option>
+                                <option value="Applied">Applied</option>
+                                <option value="Interviewing">Interviewing</option>
+                                <option value="Offer">Offer</option>
+                                <option value="Rejected">Rejected</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="summary-strip">
+                        <div>
+                            <span class="summary-label">Pipeline health</span>
+                            <strong id="pipelineHealth">Strong</strong>
+                        </div>
+                        <div>
+                            <span class="summary-label">Avg. response time</span>
+                            <strong id="avgResponse">3 days</strong>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <span>Pipeline mix</span>
+                            <span id="chartTotal">0 total</span>
+                        </div>
+                        <div id="statusChart" class="status-chart"></div>
+                    </div>
+
+                    <div id="jobList" class="job-list" aria-live="polite"></div>
+                </section>
+            </section>
+        </main>
+    </div>
+
+    <div id="authModal" class="modal-backdrop visible">
+        <div class="modal-card auth-card">
+            <div class="modal-title-row">
+                <div>
+                    <p class="eyebrow">Welcome</p>
+                    <h3>JobFlow Login</h3>
+                </div>
+                <button class="icon-close" type="button" data-close="authModal" aria-label="Close">×</button>
+            </div>
+
+            <form id="authForm" class="modal-form">
+                <label>
+                    <span>Email</span>
+                    <input type="email" name="email" placeholder="you@example.com" required />
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input type="password" name="password" placeholder="••••••••" required />
+                </label>
+                <button class="submit-btn" type="submit">Continue to dashboard</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="editModal" class="modal-backdrop hidden">
+        <div class="modal-card">
+            <div class="modal-title-row">
+                <div>
+                    <p class="eyebrow">Update role</p>
+                    <h3>Edit application</h3>
+                </div>
+                <button class="icon-close" type="button" data-close="editModal" aria-label="Close">×</button>
+            </div>
+
+            <form id="editForm" class="modal-form">
+                <input type="hidden" name="id" />
+
+                <div class="field-grid two-up">
+                    <label>
+                        <span>Company</span>
+                        <input type="text" name="company" required />
+                    </label>
+                    <label>
+                        <span>Role</span>
+                        <input type="text" name="role" required />
+                    </label>
+                </div>
+
+                <div class="field-grid two-up">
+                    <label>
+                        <span>Status</span>
+                        <select name="status">
+                            <option value="Applied">Applied</option>
+                            <option value="Interviewing">Interviewing</option>
+                            <option value="Offer">Offer</option>
+                            <option value="Rejected">Rejected</option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>Priority</span>
+                        <select name="priority">
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="field-grid two-up">
+                    <label>
+                        <span>Location</span>
+                        <input type="text" name="location" />
+                    </label>
+                    <label>
+                        <span>Salary</span>
+                        <input type="text" name="salary" />
+                    </label>
+                </div>
+
+                <label>
+                    <span>Notes</span>
+                    <textarea name="notes" rows="4"></textarea>
+                </label>
+
+                <button class="submit-btn" type="submit">Save changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>

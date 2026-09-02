@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JobFlow Project Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            color: #1b2430;
+            background: #f9fbff;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #111827;
+            margin-top: 24px;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 18px;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+        }
+
+        ul {
+            padding-left: 22px;
+        }
+
+        code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-size: 0.95em;
+        }
+
+        .small {
+            color: #475569;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JobFlow Dashboard Project Summary</h1>
+
+    <div class="card">
+        <h2>Overview</h2>
+        <p>
+            JobFlow is a job tracking dashboard built to help users organize job applications, monitor interview
+            progress,
+            track follow-ups, and review overall application performance. The project combines a modern front-end
+            dashboard with
+            a lightweight Node.js backend and local MongoDB integration.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>What was built</h2>
+        <ul>
+            <li>Modern job dashboard with premium UI styling</li>
+            <li>Quick-capture form for adding new job applications</li>
+            <li>Job board with status-based cards</li>
+            <li>Apply, interview, offer, and rejected tracking</li>
+            <li>Edit, delete, and advance workflow for each job</li>
+            <li>Search and filtering by company or role</li>
+            <li>Analytics panels for application counts and rates</li>
+            <li>Recent applications, follow-ups, and interview calendar</li>
+            <li>Resume upload support for PDF files</li>
+            <li>MongoDB-ready backend with local fallback storage</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Project structure</h2>
+        <ul>
+            <li><strong>frontend/</strong> – dashboard UI, CSS, and JavaScript logic</li>
+            <li><strong>backend/</strong> – Node.js API server and MongoDB integration</li>
+            <li><strong>frontend/index.html</strong> – main dashboard markup</li>
+            <li><strong>frontend/style.css</strong> – modern visual styling</li>
+            <li><strong>frontend/app.js</strong> – data interactions and render logic</li>
+            <li><strong>backend/server.js</strong> – API and MongoDB connection logic</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Core features</h2>
+        <h3>Application management</h3>
+        <p>
+            Users can add applications with company, role, status, location, salary, source, applied date, and notes.
+            Jobs can then be advanced through pipeline stages, edited, or deleted as needed.
+        </p>
+
+        <h3>Resume tracking</h3>
+        <p>
+            The quick-capture form includes a PDF-only upload option. Each uploaded PDF is connected to the job record
+            and
+            shown in the dashboard's resume-used section.
+        </p>
+
+        <h3>Scheduling and follow-ups</h3>
+        <p>
+            The dashboard automatically generates upcoming interview and follow-up items based on each application’s
+            current
+            status, helping users track what to do next.
+        </p>
+
+        <h3>Analytics</h3>
+        <p>
+            The dashboard includes status summaries, application trends, interview rate, and offer rate so the user can
+            monitor
+            the quality and momentum of their job search.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>MongoDB setup</h2>
+        <p>The app connects to MongoDB using a local connection string:</p>
+        <code>mongodb://localhost:27017/job_tracker</code>
+        <p>Database used:</p>
+        <code>job_tracker</code>
+        <p>Collection used:</p>
+        <code>jobs</code>
+        <p class="small">This allows the app to store application data in MongoDB instead of relying only on the JSON
+            fallback.</p>
+    </div>
+
+    <div class="card">
+        <h2>How to run</h2>
+        <ol>
+            <li>Open PowerShell in the project root.</li>
+            <li>Start MongoDB locally.</li>
+            <li>Run the backend with the MongoDB environment variables:</li>
+        </ol>
+        <pre><code>Set-Location "C:\Users\Shashank S M\Desktop\Job_tracker_NGS\backend"
+$env:MONGODB_URI = "mongodb://localhost:27017/job_tracker"
+$env:MONGODB_DB = "job_tracker"
+node server.js</code></pre>
+        <p>Then open:</p>
+        <code>http://localhost:5000</code>
+    </div>
+
+    <div class="card">
+        <h2>Important notes</h2>
+        <ul>
+            <li>Port 5000 must be free before starting the server.</li>
+            <li>MongoDB must be running locally on the machine.</li>
+            <li>Large PDF uploads are kept in the data model as base64 text for local demo purposes.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Final status</h2>
+        <p>
+            The dashboard is now functional as a job-tracking system with strong UI styling, MongoDB support, resume
+            tracking,
+            analytics, and workflow management. It is ready for local use and can be extended into a full
+            production-ready job tracker.
+        </p>
+    </div>
+</body>
+
+</html>

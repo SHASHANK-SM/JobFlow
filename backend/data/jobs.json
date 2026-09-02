@@ -1,0 +1,50 @@
+[
+    {
+        "id": "1",
+        "company": "Microsoft",
+        "role": "Frontend Engineer",
+        "status": "Interviewing",
+        "location": "Remote",
+        "source": "LinkedIn",
+        "salary": "$130k - $160k",
+        "priority": "High",
+        "appliedDate": "2026-08-28",
+        "notes": "Panel round scheduled for Friday. Review React/TypeScript portfolio."
+    },
+    {
+        "id": "2",
+        "company": "Stripe",
+        "role": "Product Designer",
+        "status": "Applied",
+        "location": "San Francisco, CA",
+        "source": "Company Site",
+        "salary": "$150k - $180k",
+        "priority": "Medium",
+        "appliedDate": "2026-08-25",
+        "notes": "Strong product-focused role; customize portfolio to highlight case studies."
+    },
+    {
+        "id": "3",
+        "company": "Notion",
+        "role": "Full Stack Developer",
+        "status": "Offer",
+        "location": "New York, NY",
+        "source": "Referral",
+        "salary": "$170k - $210k",
+        "priority": "High",
+        "appliedDate": "2026-08-16",
+        "notes": "Offer received. Need to compare benefits and final compensation package."
+    },
+    {
+        "id": "4",
+        "company": "Airbnb",
+        "role": "UX Researcher",
+        "status": "Rejected",
+        "location": "Remote",
+        "source": "Wellfound",
+        "salary": "$120k - $145k",
+        "priority": "Low",
+        "appliedDate": "2026-08-10",
+        "notes": "Good experience, but they preferred candidates with e-commerce research background."
+    }
+]

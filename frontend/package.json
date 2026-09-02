@@ -1,0 +1,9 @@
+{
+    "name": "jobflow-frontend",
+    "private": true,
+    "version": "1.0.0",
+    "description": "JobFlow dashboard frontend and serverless API for Vercel",
+    "dependencies": {
+        "mongodb": "^6.9.0"
+    }
+}

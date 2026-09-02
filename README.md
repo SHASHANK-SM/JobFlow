@@ -256,5 +256,5 @@ Shashank SM JobFlow Dashboard
 
 ##Deployed Dashboard explore
 ```text
-https://job-flow-7qmr.vercel.app/
+https://job-flow-b679.vercel.app/
 ```
